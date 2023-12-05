@@ -10,7 +10,8 @@ class RepositoryImpl @Inject constructor(val apiRequest: ApiEndpoint) :Repositor
         return apiRequest.getCoinCurrency()
     }
 
-    override suspend fun getCoinCurrencyId(id:String) : DataModel? {
-        return apiRequest.getCoinCurrencyId(id).data?.firstOrNull()
+    override suspend fun getCoinCurrencyId(id: String): DataModel? {
+        val rateItemModel = apiRequest.getCoinCurrencyId(id)
+        return rateItemModel.data?.find { it?.id == id }
     }
 }
