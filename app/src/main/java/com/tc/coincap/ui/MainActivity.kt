@@ -10,7 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.tc.coincap.ui.coinrate.CoinRateScreen
+import com.tc.coincap.ui.navigation.NavigationHost
 import com.tc.coincap.ui.theme.CoinCapTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,12 +22,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CoinCapTheme {
+                val navController = rememberNavController()
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CoinRateScreen()
+                    NavigationHost(navController = navController)
                 }
             }
         }
