@@ -23,9 +23,13 @@ fun CoinDetailScreen(navController: NavController, coinId: String) {
     // Display the details
     // For example:
     Column {
-        Text(text = "Details for Coin ID: $coinId")
+        Text(text = "Details for Coin ID: ${coinDetails?.id}")
         Text(text = "Symbol: ${coinDetails?.symbol}")
-        Text(text = "")
+        Text(text = "Currency Symbol: ${coinDetails?.currencySymbol}" )
+        Text(text = "RateUSD: ${coinDetails?.rateUsd}")
+        Text(text = "Type: ${coinDetails?.type}")
         // ... other details
     }
+
 }
+
